@@ -10,6 +10,7 @@ pub async fn index(
     use crate::schema::lab1::dsl::*;
 
     dotenv::dotenv().ok();
+    eprintln!("1");
 
     let web_block_result = web::block(move || {
         let mut conn = app_state.db_pool.get().unwrap();
@@ -17,9 +18,11 @@ pub async fn index(
         lab1.load::<Lab1Data>(&mut conn)
     })
     .await;
+    eprintln!("2");
 
     if let Err(err) = web_block_result {
         eprintln!("{}", err);
+        eprintln!("Error querying lab1 data 1");
         return HttpResponse::InternalServerError().finish();
     }
 
@@ -27,10 +30,13 @@ pub async fn index(
 
     if let Err(err) = query_result {
         eprintln!("{}", err);
+        eprintln!("Error querying lab1 data 2");
         return HttpResponse::InternalServerError().finish();
     }
 
     let queried_lab1_data = query_result.unwrap();
+
+    println!("Queried lab1 data: {:?}", queried_lab1_data);
 
     HttpResponse::Ok().json(queried_lab1_data)
 }

@@ -1,6 +1,6 @@
 FROM rust:slim AS builder
 
-WORKDIR /usr/src/business-app
+WORKDIR /usr/src/icsdt-lab1-app
 
 RUN apt-get update && apt-get install -y libpq-dev libssl-dev pkg-config
 
@@ -12,13 +12,13 @@ RUN cargo build --release -j16
 
 FROM debian:bullseye-slim
 
-WORKDIR /usr/src/business-app
+WORKDIR /usr/src/icsdt-lab1-app
 
 RUN apt-get update && apt-get install -y libpq-dev
 
-COPY --from=builder /usr/src/business-app/target/release/business-app .
+COPY --from=builder /usr/src/icsdt-lab1-app/target/release/icsdt-lab1-app .
 # COPY .env .
 
 EXPOSE 8100
 
-CMD ["./business-app"]
+CMD ["./icsdt-lab1-app"]

@@ -19,18 +19,16 @@ services:
       - database
     environment:
       ADMINER_DEFAULT_SERVER: database
-  # icsdt-lab0-app:
-  #   container_name: icsdt-lab0-app
-  #   image: wst24365888/icsdticsdt-lab0-app:latest
-  #   build:
-  #     context: .
-  #     dockerfile: Dockerfile
-  #   restart: always
-  #   ports:
-  #     - 8100:8100
-  #   depends_on:
-  #     - database
-  #   env_file:
-  #     - prod.env
+  icsdt-lab1-app:
+    container_name: icsdt-lab1-app
+    image: wst24365888/icsdt-lab1-app:latest
+    build:
+      context: .
+      dockerfile: Dockerfile
+    restart: always
+    ports:
+      - 8100:8100
+    depends_on:
+      - database
 volumes:
   pgdata:
