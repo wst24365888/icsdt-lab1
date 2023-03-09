@@ -721,6 +721,19 @@ dependencies = [
 ]
 
 [[package]]
+name = "icsdt-lab1-app"
+version = "0.1.0"
+dependencies = [
+ "actix-web",
+ "diesel",
+ "dotenv",
+ "env_logger",
+ "serde",
+ "serde_json",
+ "tokio",
+]
+
+[[package]]
 name = "idna"
 version = "0.3.0"
 source = "registry+https://github.com/rust-lang/crates.io-index"
@@ -784,19 +797,6 @@ source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "445dde2150c55e483f3d8416706b97ec8e8237c307e5b7b4b8dd15e6af2a0730"
 dependencies = [
  "wasm-bindgen",
-]
-
-[[package]]
-name = "lab1"
-version = "0.1.0"
-dependencies = [
- "actix-web",
- "diesel",
- "dotenv",
- "env_logger",
- "serde",
- "serde_json",
- "tokio",
 ]
 
 [[package]]
