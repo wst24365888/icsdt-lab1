@@ -30,8 +30,8 @@ async fn main() -> std::io::Result<()> {
                 db_pool: db_pool.clone(),
             }))
             .wrap(middleware::Logger::default())
-            .route("/", web::get().to(|| async { "Hello World!" }))
             .service(handlers::index)
+            .service(handlers::data)
     })
     .workers(16)
     .bind("0.0.0.0:8100")?

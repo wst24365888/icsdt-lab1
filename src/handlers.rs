@@ -3,8 +3,13 @@ use diesel::prelude::*;
 
 use crate::models::*;
 
+#[get("/")]
+pub async fn index() -> impl Responder {
+    HttpResponse::Ok().body("Hello World!")
+}
+
 #[get("/data")]
-pub async fn index(
+pub async fn data(
     app_state: web::Data<AppState>,
 ) -> impl Responder {
     use crate::schema::lab1::dsl::*;
@@ -31,8 +36,6 @@ pub async fn index(
     }
 
     let queried_lab1_data = query_result.unwrap();
-
-    println!("Queried lab1 data: {:?}", queried_lab1_data);
 
     HttpResponse::Ok().json(queried_lab1_data)
 }
