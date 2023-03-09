@@ -1,0 +1,36 @@
+version: '3'
+services:
+  database:
+    container_name: database
+    image: postgres:latest
+    restart: always
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+    env_file:
+      - db.env
+    ports:
+      - 15432:5432
+  adminer:
+    image: adminer:latest
+    restart: always
+    ports:
+      - 8080:8080
+    depends_on:
+      - database
+    environment:
+      ADMINER_DEFAULT_SERVER: database
+  # icsdt-lab0-app:
+  #   container_name: icsdt-lab0-app
+  #   image: wst24365888/icsdticsdt-lab0-app:latest
+  #   build:
+  #     context: .
+  #     dockerfile: Dockerfile
+  #   restart: always
+  #   ports:
+  #     - 8100:8100
+  #   depends_on:
+  #     - database
+  #   env_file:
+  #     - prod.env
+volumes:
+  pgdata:
