@@ -24,7 +24,7 @@ cd icsdt-lab1
 3. Create `db.env` file in the root directory of this project, and fill in the environment variables according to `db.env.example`.
 4. Start the database and the app. The app will be available at <http://localhost:8100>
 ```bash
-docker-compose up -d
+docker compose up -d
 ```
 5. Run the migrations.
 ```bash
