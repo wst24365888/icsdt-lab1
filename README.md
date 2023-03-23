@@ -17,7 +17,7 @@ This is lab 1 for the course Innovation of Cloud Service and Development Tools a
 
 1. Clone this repository.
 ```bash
-git clone https://github.com/wst24365888/icsdt-lab1
+git clone https://github.com/wst24365888/icsdt-lab1.git
 cd icsdt-lab1
 ```
 2. Create `prod.env` file in the root directory of this project, and fill in the environment variables according to `env.example`.
